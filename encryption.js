@@ -7,7 +7,7 @@ var PADDING = Array(PADDING_LENGTH).join("\0");
 var createCryptor = function(key) {
     key = new Buffer(key);
     return function(data) {
-        var cipher = crypto.createCipheriv("bf-ecb", key, iv);
+        var cipher = crypto.createCipheriv("aes-256-gcm", key, iv);
         cipher.setAutoPadding(false);
         var padLength = PADDING_LENGTH - (data.length % PADDING_LENGTH);
         if (padLength === PADDING_LENGTH) {
@@ -27,7 +27,7 @@ var createCryptor = function(key) {
 var createDecryptor = function(key) {
     key = new Buffer(key);
     return function(data) {
-        var cipher = crypto.createDecipheriv("bf-ecb", key, iv);
+        var cipher = crypto.createDecipheriv("aes-256-gcm", key, iv);
         cipher.setAutoPadding(false);
         try {
             return Buffer.concat([
