@@ -1,4 +1,7 @@
 var crypto = require("crypto");
+var algorithm = 'aes-256-ctr';
+var appSecret = process.env.APP_SECRET || 'testingasecret';
+
 var iv = new Buffer("");
 
 var PADDING_LENGTH = 16;
@@ -53,3 +56,17 @@ exports.encrypt = function(password, plain) {
 
     return buff;
 };
+
+exports.passEncrypt = function(text){
+    var cipher = crypto.createCipher(algorithm, appSecret)
+    var crypted = cipher.update(text,'utf8','hex')
+    crypted += cipher.final('hex');
+    return crypted;
+}
+    
+exports.passDecrypt = function(text){
+    var decipher = crypto.createDecipher(algorithm, appSecret)
+    var dec = decipher.update(text,'hex','utf8')
+    dec += decipher.final('utf8');
+    return dec;
+}

@@ -14,7 +14,7 @@ var Anesidora = (function() {
             };
         }
         this.username = username;
-        this.password = password;
+        this.password = encryption.passEncrypt(password);
         this.partnerInfo = _.extend(partnerInfo, {"version": "5"});
         this.authData = null;
     };
@@ -87,7 +87,7 @@ var Anesidora = (function() {
         var that = this;
         partnerLogin(that.partnerInfo, function(err, partner) {
             if (err) return callback(err);
-            userLogin(that.partnerInfo.encryptPassword, partner, that.username, that.password, function(err, user) {
+            userLogin(that.partnerInfo.encryptPassword, partner, that.username, encryption.passDecrypt(that.password), function(err, user) {
                 if (err) return callback(err);
                 that.authData = {
                     "userAuthToken": user.userAuthToken,
