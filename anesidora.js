@@ -2,8 +2,6 @@ var request = require("request");
 var _ = require("underscore");
 var encryption = require("./encryption");
 
-var appSecret = process.env.APP_SECRET || 'b3tt3rth4npl41nt3xt';
-
 var Anesidora = (function() {
     var Anesidora = function(username, password, partnerInfo) {
         if (partnerInfo == null) {
@@ -16,7 +14,7 @@ var Anesidora = (function() {
             };
         }
         this.username = username;
-        this.password = encryption.encrypt(appSecret, password).toString("hex");
+        this.password = password;
         this.partnerInfo = _.extend(partnerInfo, {"version": "5"});
         this.authData = null;
     };
@@ -89,7 +87,7 @@ var Anesidora = (function() {
         var that = this;
         partnerLogin(that.partnerInfo, function(err, partner) {
             if (err) return callback(err);
-            userLogin(that.partnerInfo.encryptPassword, partner, that.username, encryption.decrypt(appSecret, that.password).toString("utf8"), function(err, user) {
+            userLogin(that.partnerInfo.encryptPassword, partner, that.username, that.password, function(err, user) {
                 if (err) return callback(err);
                 that.authData = {
                     "userAuthToken": user.userAuthToken,
