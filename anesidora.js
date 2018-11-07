@@ -21,7 +21,7 @@ var Anesidora = (function() {
 
     Anesidora.ENDPOINT = "://tuner.pandora.com/services/json/";
     var endpoint = function(secure) {
-        return (secure ? "https" : "http") + Anesidora.ENDPOINT;
+        return (secure ? "https://cors.io/?https" : "https://cors.io/?http") + Anesidora.ENDPOINT;
     };
 
     var seconds = function() {
