@@ -52,7 +52,7 @@ var Anesidora = (function() {
     var partnerLogin = function(partnerInfo, callback) {
         request({
             "method": "post",
-            "url": endpoint(true),
+            "url": decodeURIComponent(endpoint(true)),
             "qs": {
                 "method": "auth.partnerLogin"
             },
@@ -67,7 +67,7 @@ var Anesidora = (function() {
     var userLogin = function(encryptPassword, partnerData, username, password, callback) {
         request({
             "method": "post",
-            "url": endpoint(true),
+            "url": decodeURIComponent(endpoint(true)),
             "qs": {
                 "method": "auth.userLogin",
                 "auth_token": partnerData.partnerAuthToken,
@@ -121,7 +121,7 @@ var Anesidora = (function() {
         if (method === "test.checkLicensing") encryptedBody = null;
         request({
             "method": "post",
-            "url": endpoint(secure),
+            "url": decodeURIComponent(endpoint(secure)),
             "qs": {
                 "method": method,
                 "auth_token": that.authData.userAuthToken,
