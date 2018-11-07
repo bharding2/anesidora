@@ -54,6 +54,9 @@ var Anesidora = (function() {
     var partnerLogin = function(partnerInfo, callback) {
         request({
             "method": "post",
+            "headers": {
+                "Content-Type": "multipart/form-data"
+            }
             "url": endpoint(true),
             "qs": {
                 "method": "auth.partnerLogin"
@@ -69,6 +72,9 @@ var Anesidora = (function() {
     var userLogin = function(encryptPassword, partnerData, username, password, callback) {
         request({
             "method": "post",
+            "headers": {
+                "Content-Type": "multipart/form-data"
+            }
             "url": endpoint(true),
             "qs": {
                 "method": "auth.userLogin",
@@ -123,6 +129,9 @@ var Anesidora = (function() {
         if (method === "test.checkLicensing") encryptedBody = null;
         request({
             "method": "post",
+            "headers": {
+                "Content-Type": "multipart/form-data"
+            }
             "url": endpoint(secure),
             "qs": {
                 "method": method,
