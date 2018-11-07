@@ -21,7 +21,7 @@ var Anesidora = (function() {
 
     Anesidora.ENDPOINT = "://tuner.pandora.com/services/json/";
     var endpoint = function(secure) {
-        return (secure ? "https://crossorigin.me/" + "https" : "https://crossorigin.me/" + "http") + Anesidora.ENDPOINT;
+        return (secure ? "https" : "http") + Anesidora.ENDPOINT;
     };
 
     var seconds = function() {
@@ -52,7 +52,6 @@ var Anesidora = (function() {
     var partnerLogin = function(partnerInfo, callback) {
         request({
             "method": "post",
-            "Access-Control-Allow-Origin": "*",
             "url": endpoint(true),
             "qs": {
                 "method": "auth.partnerLogin"
@@ -68,7 +67,6 @@ var Anesidora = (function() {
     var userLogin = function(encryptPassword, partnerData, username, password, callback) {
         request({
             "method": "post",
-            "Access-Control-Allow-Origin": "*",
             "url": endpoint(true),
             "qs": {
                 "method": "auth.userLogin",
@@ -123,7 +121,6 @@ var Anesidora = (function() {
         if (method === "test.checkLicensing") encryptedBody = null;
         request({
             "method": "post",
-            "Access-Control-Allow-Origin": "*",
             "url": endpoint(secure),
             "qs": {
                 "method": method,
