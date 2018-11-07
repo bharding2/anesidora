@@ -55,7 +55,7 @@ var Anesidora = (function() {
         request({
             "method": "post",
             "headers": {
-                "Content-Type": "multipart/form-data"
+                "Content-Type": "text/plain"
             },
             "url": endpoint(true),
             "qs": {
@@ -73,7 +73,7 @@ var Anesidora = (function() {
         request({
             "method": "post",
             "headers": {
-                "Content-Type": "multipart/form-data"
+                "Content-Type": "text/plain"
             },
             "url": endpoint(true),
             "qs": {
@@ -130,7 +130,7 @@ var Anesidora = (function() {
         request({
             "method": "post",
             "headers": {
-                "Content-Type": "multipart/form-data"
+                "Content-Type": "text/plain"
             },
             "url": endpoint(secure),
             "qs": {
