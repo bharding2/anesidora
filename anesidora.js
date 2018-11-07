@@ -52,9 +52,7 @@ var Anesidora = (function() {
     var partnerLogin = function(partnerInfo, callback) {
         request({
             "method": "post",
-            "headers": {
-                "Access-Control-Allow-Origin": "*"
-            },
+            "mode": "no-cors",
             "url": endpoint(true),
             "qs": {
                 "method": "auth.partnerLogin"
