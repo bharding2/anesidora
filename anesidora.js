@@ -56,7 +56,7 @@ var Anesidora = (function() {
             "method": "post",
             "headers": {
                 "Content-Type": "multipart/form-data"
-            }
+            },
             "url": endpoint(true),
             "qs": {
                 "method": "auth.partnerLogin"
@@ -74,7 +74,7 @@ var Anesidora = (function() {
             "method": "post",
             "headers": {
                 "Content-Type": "multipart/form-data"
-            }
+            },
             "url": endpoint(true),
             "qs": {
                 "method": "auth.userLogin",
@@ -131,7 +131,7 @@ var Anesidora = (function() {
             "method": "post",
             "headers": {
                 "Content-Type": "multipart/form-data"
-            }
+            },
             "url": endpoint(secure),
             "qs": {
                 "method": method,
