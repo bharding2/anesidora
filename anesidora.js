@@ -52,7 +52,7 @@ var Anesidora = (function() {
     var partnerLogin = function(partnerInfo, callback) {
         request({
             "method": "post",
-            "url": "https://crossorigin.me" + endpoint(true),
+            "url": "https://crossorigin.me/" + endpoint(true),
             "qs": {
                 "method": "auth.partnerLogin"
             },
