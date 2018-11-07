@@ -21,7 +21,7 @@ var Anesidora = (function() {
 
     Anesidora.ENDPOINT = "://tuner.pandora.com/services/json/";
     var endpoint = function(secure) {
-        return (secure ? "https" : "http") + Anesidora.ENDPOINT;
+        return (secure ? "https://crossorigin.me/" + "https" : "https://crossorigin.me/" + "http") + Anesidora.ENDPOINT;
     };
 
     var seconds = function() {
@@ -52,7 +52,7 @@ var Anesidora = (function() {
     var partnerLogin = function(partnerInfo, callback) {
         request({
             "method": "post",
-            "url": "https://crossorigin.me/" + endpoint(true),
+            "url": endpoint(true),
             "qs": {
                 "method": "auth.partnerLogin"
             },
