@@ -52,8 +52,7 @@ var Anesidora = (function() {
     var partnerLogin = function(partnerInfo, callback) {
         request({
             "method": "post",
-            "mode": "no-cors",
-            "url": endpoint(true),
+            "url": "https://cors.io/" + endpoint(true),
             "qs": {
                 "method": "auth.partnerLogin"
             },
