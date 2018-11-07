@@ -21,6 +21,8 @@ var Anesidora = (function() {
 
     Anesidora.ENDPOINT = "://tuner.pandora.com/services/json/";
     var endpoint = function(secure) {
+        console.log((secure ? "https://cors.io/?https" : "https://cors.io/?http") + Anesidora.ENDPOINT)
+
         return (secure ? "https://cors.io/?https" : "https://cors.io/?http") + Anesidora.ENDPOINT;
     };
 
@@ -52,7 +54,7 @@ var Anesidora = (function() {
     var partnerLogin = function(partnerInfo, callback) {
         request({
             "method": "post",
-            "url": decodeURIComponent(endpoint(true)),
+            "url": endpoint(true),
             "qs": {
                 "method": "auth.partnerLogin"
             },
@@ -67,7 +69,7 @@ var Anesidora = (function() {
     var userLogin = function(encryptPassword, partnerData, username, password, callback) {
         request({
             "method": "post",
-            "url": decodeURIComponent(endpoint(true)),
+            "url": endpoint(true),
             "qs": {
                 "method": "auth.userLogin",
                 "auth_token": partnerData.partnerAuthToken,
@@ -121,7 +123,7 @@ var Anesidora = (function() {
         if (method === "test.checkLicensing") encryptedBody = null;
         request({
             "method": "post",
-            "url": decodeURIComponent(endpoint(secure)),
+            "url": endpoint(secure),
             "qs": {
                 "method": method,
                 "auth_token": that.authData.userAuthToken,
